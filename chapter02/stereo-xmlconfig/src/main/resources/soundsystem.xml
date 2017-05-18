@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!-- <bean id="compactDisc" class="soundsystem.SgtPeppers" /> -->
+	<bean id="compactDisc" class="soundsystem.BlankDisc" >
+		<constructor-arg value="Sgt. Pepper's Lonely Hearts Club Band"></constructor-arg>
+		<constructor-arg value="The Beatles"></constructor-arg>
+		<constructor-arg>
+			<list>
+			    <value>Sgt. Pepper's Lonely Hearts Club Band</value>
+      			<value>With a Little Help from My Friends</value>
+        		<value>Lucy in the Sky with Diamonds</value>
+       			<value>Getting Better</value>
+ 			    <value>Fixing a Hole</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	<!-- 	  通过constructor-arg来声明构造器参数 
+	<bean id="cdPlayer" class="soundsystem.CDPlayer">
+			<constructor-arg ref="compactDisc"></constructor-arg>
+	</bean> -->
+	<!--  通过C-空间和模式声明构造器参数-->
+
+	<bean id="cdPlayer" class="soundsystem.CDPlayer">
+		<property name="cd" ref="compactDisc"></property>
+	</bean>
+	
+</beans>
